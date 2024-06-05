@@ -1,13 +1,301 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+button {
+  cursor: pointer;
+}
+:root {
+  --color-white: #f0f0f0;
+  --color-white-bg: #fff;
+  --color-black: #000;
+  --color-light-black: #172337;
+  --color-border-grey: #e4e7ed;
+  --color-brand-orange: #fb641b;
+  --color-brand-blue: #2874f0;
+  --color-brand-bbd: #2455f4;
+  --color-brand-refurb: #f2575b;
+  --color-brand-footer: #172337;
+  --color-brand-blue-lighter: #7accff;
+  --color-brand-blue-lighter1: #dfeafd;
+  --color-blue-lighter1: #b3d7ff;
+  --color-blue-lighter2: #2370f4;
+  --color-blue-lighter3: #2a55e5;
+  --color-blue-lighter4: #f5f7fa;
+  --color-blue-lighter5: #d5d7db;
+  --color-blue-lighter6: #cfe1ff;
+  --color-blue-lighter7: #f0f5ff;
+  --color-primary-yellow: #ffe11b;
+  --color-primary-yellow2: #f1d27d;
+  --color-yellow-grade1: #fff7e1;
+  --color-yellow-grade2: #fef8e0;
+  --color-purple: #5f4eeb;
+  --color-offer-green: #388e3c;
+  --color-green-grade0: #26a541;
+  --color-green-grade1: #e9f2e9;
+  --color-green-grade2: #e6f4e8;
+  --color-green-grade3: #e6f3e6;
+  --color-green-grade4: #008c00;
+  --color-yellowish-orange: #ff9f00;
+  --color-flash-green: #11c29b;
+  --color-error-red: #ff6161;
+  --color-error-red2: #ff4343;
+  --color-error-red3: #ffeaed;
+  --color-error-red4: #dd5354;
+  --color-error-red5: #d23276;
+  --color-error-red6: #e4001e;
+  --color-error-red7: #e32727;
+  --color-grey-grade0: #fafafa;
+  --color-grey-grade1: #f0f0f0;
+  --color-grey-grade2: #e0e0e0;
+  --color-grey-grade3: #c2c2c2;
+  --color-grey-grade4: #878787;
+  --color-grey-grade5: #212121;
+  --color-grey-grade6: #d7d7d7;
+  --color-grey-grade7: #f9f9f9;
+  --color-grey-grade8: #9e9e9e;
+  --color-grey-grade9: #efefef;
+  --color-grey-grade10: #f5f5f5;
+  --color-grey-grade11: #aaa;
+  --color-grey-grade12: #dbdbdb;
+  --color-grey-grade13: #fbfbfb;
+  --color-grey-grade14: #666;
+  --color-grey-grade15: #f8f8f8;
+  --color-grey-grade16: #eee;
+  --color-grey-grade17: #9b9b9b;
+  --color-grey-grade18: #686868;
+  --color-grey-grade19: #eaeaea;
+  --color-grey-grade20: #e6e6e6;
+  --color-grey-grade21: #e9e9e9;
+  --color-grey-grade22: #d8d8d8;
+  --color-grey-grade23: #ffcbd0;
+  --color-grey-grade24: #717478;
+  --color-grey-grade25: #111112;
+  --color-grey-grade26: #f0f2f5;
+  --color-grey-grade27: #e4e7ed;
+  --color-grey-grade28: #d5d7db;
+  --color-grey-grade29: #bdbdbd;
+  --color-greyish-blue: #b8bbbf;
+  --color-light-greyish-blue: #f1f3f5;
+  --color-error-bg: #fff7f8;
+  --color-info-bg: #ffffe6;
+  --color-info-light-bg: #fffbf6;
+  --color-page-bg: #f1f3f6;
+  --color-green-bg: #f7fffa;
+  --color-blue-bg: #f5faff;
+  --color-vip-black-bg: #343c4e;
+  --color-grey-badge: #717171;
+  --color-grey-light: #d3d3d3;
+  --color-grey-light2: #d5d7db;
+  --color-vendor-text: #3f3f3f;
+  --color-supermart-green: #26a541;
+  --color-dark-blue1: #1d6ded;
+  --color-light-blue: #f4f8ff;
+  --color-light-blue1: #bed5fa;
+  --color-light-blue2: #93b7f1;
+  --color-light-blue3: #f0f5ff;
+  --color-suparmart-fk-background: #258b3b;
+  --color-info-yellow: #fffdec;
+  --color-cobranded-footer-blue: #005387;
+  --color-pre-book-purple: #854987;
+  --color-light-pink: #fff0ff;
+  --color-light-orange: #fdf5e7;
+  --color-orange-bg: #fff7e1;
+  --color-bright-orange: #e79900;
+  --color-payment-orange: #ffc200;
+  --color-wishlist-red: #ff4343;
+  --color-light-green: #e7f8ec;
+  --color-selector-black: #010101;
+  --color-light-grey-orange: #fef7e9;
+  --color-mustard: #af7b1c;
+  --color-light-white-bg: #f5f7fa;
+  --header-width-min: 790px;
+  --width-min: 978px;
+  --width-max: 1680px;
+  --product-page-gutter: 24px;
+  --product-section-title-width: 110px;
+  --product-section-title-padding: 10px;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-size-8: 8px;
+  --font-size-10: 10px;
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+  --font-size-32: 32px;
+  --font-size-default: 14px;
+}
+
+/* navbar */
+nav {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ color: #fff;
+  
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background: transparent;
+  backdrop-filter: blur(10px);
+
+
+  
+}
+.nav-logo{
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  color: navy;
+  cursor: pointer;
+}
+.nav-logo h1{
+  display: inline;
+}
+.logo{
+  font-size: 30px;
+}
+.nav-itmes{
+  margin-right: 50px;
+  cursor: pointer;
+}
+.profile{
+  display: flex;
+  align-items: center;
+ color: navy;
+ font-weight: 600;
+}
+.profile-icon{
+  font-size: 30px;
+  margin-left: 5px;
+  color: navy;
+}
+/* home */
+
+.home-container {
+
+background-image: url("./images/background.jpg");
+background-size: contain;
+background-position: right;
+background-repeat: no-repeat;
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.section{
+  font-family:  'Lexend', sans-serif;
+ margin-left: 100px; 
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+.section h1{
+  font-weight: 500;
+   font-size: 48px;
+}
+.section-title{
+  width: 500px;
+  line-height: 60px;
+  letter-spacing: -1.6px;
+  padding: 40px;
+  color: navy;
+}
+.home-content{
+  width: 80%;
+  padding: 40PX;
+  color: #666;
+}
+.section button{
+  width: 300px;
+  height: 60px;
+  border-radius: 30px;
+  border: none;
+  background-color: #2370f4;
+  color: white;
+  font-weight: 600;
+ 
+}
+.resume-create-btn{
+  padding: 40px;
 }
