@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import banner from "../images/landing-banner.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -18,7 +18,10 @@ export default function Home() {
             </h4>
           </div>
           <div className="resume-create-btn">
-            <button>Create My Resume Now </button>
+            <Link to={"/template"}>
+              {" "}
+              <button>Create My Resume Now</button>
+            </Link>
           </div>
         </div>
       </div>
