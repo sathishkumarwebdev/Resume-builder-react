@@ -3,7 +3,9 @@ import Home from "./pages/Home";
 import Templates from "./pages/Templates";
 import Resume from "./pages/Resume";
 import Register from "./pages/Register";
-import {DataProvider} from "./provider/DataPovider"
+import Preview from "./pages/Preview";
+
+import {DataProvider} from "./provider/DataPovider";
 function App() {
   return (
     <>
@@ -13,6 +15,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/template" element={<Templates />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/preview" element={<Preview />} />
         </Routes>
       </DataProvider>
     </>

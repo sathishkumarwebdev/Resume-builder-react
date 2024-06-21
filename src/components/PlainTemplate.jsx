@@ -1,12 +1,16 @@
 import React from "react";
-import { data } from "../temporaryData/TempData";
+import  {useContext} from "react";
+import {DataContext} from "../provider/DataPovider";
 
-export default function PlainTemplate({ themeData, resumeData }) {
-  // const firstName="Sathish";
+
+
+export default function PlainTemplate() {
+   const context = useContext(DataContext);
+   const { themeData, resumeData } = context;
   console.log("plaintemp::", themeData);
   console.log("resumrData::", resumeData);
-  // const {personalData} =data;
-  const { personalData, objective, experience, skills, education } = data;
+  
+  const { personalData, objective, experience, skills, education } = resumeData;
   const skillsArray =  skills ;
   const {resumeColor}=themeData;
   console.log(resumeColor);
@@ -18,12 +22,9 @@ export default function PlainTemplate({ themeData, resumeData }) {
                     
                  
   }
-  for(const key in personalData){
-    
-  }
-    console.log(personalData);
-  // const map1=personalData.map((key)=>key);
-  // console.log(map1);
+
+    console.log("resumeData",resumeData);
+  console.log("personalData",personalData);
   function template() {
     return (
       <>
@@ -33,7 +34,7 @@ export default function PlainTemplate({ themeData, resumeData }) {
               {personalData.firstName} &nbsp; {personalData.lastName}
             </h1>
             <hr style={{ border: `2px solid  ${resumeColor}` }} />
-            <h3 style={{ color: resumeColor }}>{personalData.proffesion}</h3>
+            <h3 style={{ color: resumeColor }}>{personalData.profession}</h3>
             <hr style={{ border: `2px solid  ${resumeColor}` }} />
           </div>
           <div className="resume-body-theme-one">
@@ -45,7 +46,7 @@ export default function PlainTemplate({ themeData, resumeData }) {
                 <p>{personalData.address}</p>
                 <p>{personalData.city}</p>
                 <p>{personalData.state}</p>
-                <p>{personalData.zipcode}</p>
+                <p>{personalData.zipCode}</p>
                 <p>{personalData.linkedin}</p>
                 <p>{personalData.twitter}</p>
                 <p>{personalData.portfolio}</p>
@@ -61,7 +62,6 @@ export default function PlainTemplate({ themeData, resumeData }) {
                 <p>{education.college1.endDate}</p>
               </div>
               <div className="skills"></div>
-              {/* <div className="education">4</div> */}
             </div>
             <div className="section-right-theme-one">
               <div className="objective">

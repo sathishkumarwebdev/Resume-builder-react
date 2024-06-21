@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import {Link} from "react-router-dom";
 import NavBar from "../components/NavBar";
 import PlainTemplate from "../components/PlainTemplate";
 import { DataContext } from "../provider/DataPovider";
@@ -9,155 +10,39 @@ import { FaGraduationCap } from "react-icons/fa";
 import { FaSuitcase } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { FaMedal } from "react-icons/fa";
+import {PersonalInfo} from "../components/PersonalInfo";
+import { Education } from "../components/Education";
+
+import { Slider } from "../components/Slider";
+        
 
 import { Editor } from "primereact/editor";
 
+
+
+
 export default function Resume() {
   const context = useContext(DataContext);
-  const [counter, setCounter] = useState(1);
+  const { themeData, resumeData,setResumeData } = context;
+   const [counter, setCounter] = useState(1);
   const [form1, setForm1] = useState("progress-bar-box");
   const [form2, setForm2] = useState("progress-bar-box");
   const [form3, setForm3] = useState("progress-bar-box");
   const [form4, setForm4] = useState("progress-bar-box");
   const [form5, setForm5] = useState("progress-bar-box");
-  const { themeData, resumeData } = context;
-  console.log(themeData);
-  console.log(resumeData);
+   
 
-  const PersonalInfo = () => {
-    setForm1("progress-bar-box-completed ");
-    return (
-      <div className="form-container">
-        <div className="form-title">
-          <h3>Personal Information</h3>
-        </div>
-        <div className="form content">
-          <div className="2-section">
-            <div className="label">
-              <div>First Name</div>
-              <div>Last Name</div>
-            </div>
-            <div className="label">
-              <div>
-                <input type="text" placeholder="First Name" />
-              </div>
-              <div>
-                <input type="text" placeholder="Last Name" />
-              </div>
-            </div>
-          </div>
 
-          <div className="2-section">
-            <div className="label">
-              <div>Proffesion</div>
-            </div>
-          </div>
-          <div className="single-label">
-            <div>
-              <input type="text" placeholder="Proffesion" />
-            </div>
-          </div>
-          <div className="label">
-            <div>Address</div>
-            <div>City</div>
-          </div>
-          <div className="label">
-            <div>
-              <input type="text" placeholder="Address" />
-            </div>
-            <div>
-              <input type="text" placeholder="City" />
-            </div>
-          </div>
-          <div className="label">
-            <div>State</div>
-            <div>Zip Code</div>
-          </div>
-          <div className="label">
-            <div>
-              <input type="text" placeholder="State" />
-            </div>
-            <div>
-              <input type="text" placeholder="Zip Code" />
-            </div>
-          </div>
-          <div className="section-btn-single">
-            <button onClick={() => setCounter(counter + 1)}>Next</button>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  const Education = () => {
-    setForm2("progress-bar-box-completed ");
-    return (
-      <div className="form-container">
-        <div className="form-title">
-          <h3>Education</h3>
-        </div>
-        <div className="form content">
-          <div className="2-section">
-            <div className="label">
-              <div>Institution Name</div>
-              <div>Course</div>
-            </div>
-            <div className="label">
-              <div>
-                <input type="text" placeholder="Institution Name" />
-              </div>
-              <div>
-                <input type="text" placeholder="Course" />
-              </div>
-            </div>
-          </div>
-          <div className="2-section">
-            <div className="label">
-              <div>Country</div>
-              <div>State</div>
-            </div>
-            <div className="label">
-              <div>
-                <input type="text" placeholder="Country" />
-              </div>
-              <div>
-                <input type="text" placeholder="State" />
-              </div>
-            </div>
-          </div>
-          <div className="2-section">
-            <div className="label">
-              <div>Time Period</div>
-            </div>
-          </div>
+   
 
-          <div className="label">
-            <div>Start</div>
-            <div>Finish</div>
-          </div>
-          <div className="label">
-            <div>
-              <input type="date" />
-            </div>
-            <div>
-              <input type="date" />
-            </div>
-          </div>
+    
+  
+    
 
-          <div className="section-btn">
-            <button
-              className="previous "
-              onClick={() => setCounter(counter - 1)}
-            >
-              previous
-            </button>
-            <button className="next" onClick={() => setCounter(counter + 1)}>
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // const PersonalInfo = () => {
+  //   setForm1("progress-bar-box-completed ");
+    
+
   const Experience = () => {
     setForm3("progress-bar-box-completed");
     return (
@@ -343,9 +228,9 @@ export default function Resume() {
             >
               previous
             </button>
-            <button className="next" onClick={() => setCounter(counter + 1)}>
-              Preview
-            </button>
+            <Link to={"/preview"}>
+              <button className="next">Preview</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -356,6 +241,10 @@ export default function Resume() {
     <>
       <NavBar />
       <div className="progress-detail">
+        {/* <div className="hamBarger-slider">
+          <Slider />
+        </div> */}
+
         <div className={form1}>
           <BsFillPersonLinesFill size={22} /> &nbsp;
           <h3>Personal Information</h3>
@@ -382,9 +271,13 @@ export default function Resume() {
         <div className="right-division">
           <div className="resume-form">
             {counter === 1 ? (
-              <PersonalInfo />
+              <PersonalInfo
+                setCounter={setCounter}
+                counter={counter}
+                setForm1={setForm1}
+              />
             ) : counter === 2 ? (
-              <Education />
+              <Education setForm2={setForm2} setCounter={setCounter} counter={counter} />
             ) : counter === 3 ? (
               <Experience />
             ) : counter === 4 ? (

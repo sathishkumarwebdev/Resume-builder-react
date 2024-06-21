@@ -684,7 +684,7 @@ nav {
   /* background-color: navy; */
 }
 .progress-bar-box {
-  width: 250px;
+  width: 220px;
   /* border: 1px solid lightgray; */
   display: flex;
   justify-content: center;
@@ -695,7 +695,7 @@ nav {
   font-family: "Nunito", sans-serif;
 }
 .progress-bar-box-completed {
-  width: 250px;
+  width: 220px;
   /* border: 1px solid lightgray; */
   display: flex;
   justify-content: center;

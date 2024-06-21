@@ -28,39 +28,39 @@ export default function Templates() {
   function selectColor(e) {
     // const color = "";
 
-    if (e.target.id == "plain") {
+    if (e.target.id ==="plain") {
      const resumeColor = "";
       colors(resumeColor);
       
       
-    } else if (e.target.id == "blue") {
+    } else if (e.target.id === "blue") {
       const resumeColor = "navy";
       colors(resumeColor);
      
       
-    } else if (e.target.id == "grey") {
+    } else if (e.target.id === "grey") {
       const resumeColor = "rgb(125, 125, 125)";
       colors(resumeColor);
       
-    } else if (e.target.id == "meroon") {
+    } else if (e.target.id === "meroon") {
       const resumeColor = "rgb(140, 0, 0)";
       colors(resumeColor);
-    } else if (e.target.id == "green") {
+    } else if (e.target.id === "green") {
       const resumeColor = "rgb(0, 80, 0)";
       colors(resumeColor);
-    } else if (e.target.id == "skyBlue") {
+    } else if (e.target.id === "skyBlue") {
      const resumeColor = "rgb(23, 169, 228)";
       colors(resumeColor);
-    } else if (e.target.id == "pink") {
+    } else if (e.target.id === "pink") {
      const resumeColor = " rgb(255, 127, 127)";
       colors(resumeColor);
-    } else if (e.target.id == "lightBlue") {
+    } else if (e.target.id === "lightBlue") {
     const resumeColor = "rgb(34, 166, 153)";
       colors(resumeColor);
-    } else if (e.target.id == "yellow") {
+    } else if (e.target.id === "yellow") {
       const resumeColor = "rgb(255, 204, 0)";
       colors(resumeColor);
-    } else if (e.target.id == "whiteGrey") {
+    } else if (e.target.id === "whiteGrey") {
       const resumeColor = "rgb(245, 241, 238)";
       colors(resumeColor);
     }
@@ -176,7 +176,7 @@ export default function Templates() {
 
           <div className="selected-box">
             <h3> Color:</h3>
-            {tickColor == "" ? (
+            {tickColor ==="" ? (
               <MdColorLens color="black" size={50} />
             ) : (
               <MdColorLens color={tickColor} size={50} />
