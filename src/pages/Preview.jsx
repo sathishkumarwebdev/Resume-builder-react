@@ -1,13 +1,13 @@
-import React from 'react';
-import {PDFDownloadLink,PDFViewer} from "@react-pdf/renderer";
-import Pdf from '../components/Pdf';
+import React from "react";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import Pdf from "../components/Pdf";
 
-export default function () {
+export default function Preview() {
   return (
     <>
-    <PDFViewer >
-      <Pdf/>
-    </PDFViewer>
+      <PDFViewer width="90%" height="600" showToolbar="false">
+        <Pdf />
+      </PDFViewer>
       <div>
         <PDFDownloadLink document={<Pdf />} fileName="1.pdf">
           {({ blob, loading, url, error }) =>
